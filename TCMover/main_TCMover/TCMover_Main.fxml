@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main_TCMover.TCMoverController">
+   <children>
+      <Label fx:id="welcomeLabel" layoutX="137.0" layoutY="14.0" prefHeight="26.0" prefWidth="292.0" text="Welcome to TCMover! For use instructions, please click" />
+      <Button fx:id="instructionsButton" layoutX="429.0" layoutY="15.0" mnemonicParsing="false" onAction="#displayInstructions" prefHeight="25.0" prefWidth="43.0" text="here." />
+      <Label fx:id="tcLabel" layoutX="33.0" layoutY="46.0" prefHeight="26.0" prefWidth="84.0" text="TC Input Path:" />
+      <TextField fx:id="folderPathTextField" layoutX="120.0" layoutY="47.0" prefHeight="25.0" prefWidth="469.0" />
+      <TextField fx:id="outputPathTextField" layoutX="120.0" layoutY="84.0" prefHeight="25.0" prefWidth="469.0" />
+      <Button fx:id="executeButton" layoutX="589.0" layoutY="218.0" mnemonicParsing="false" onAction="#execute" prefHeight="25.0" prefWidth="33.0" text="Go" />
+      <Label fx:id="outputLabel" layoutX="23.0" layoutY="83.0" prefHeight="26.0" prefWidth="93.0" text="TC Output Path:" />
+      <CheckBox fx:id="replaceFiles" layoutX="11.0" layoutY="128.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Replace existing files?" />
+      <Line endX="500.0" layoutX="112.0" layoutY="124.0" startX="-100.0">
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor>
+      </Line>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f75" height="17.0" layoutX="215.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Label layoutX="285.0" layoutY="120.0" text="Parameters" textFill="WHITE" />
+      <TextField fx:id="psb" layoutX="66.0" layoutY="183.0" prefHeight="25.0" prefWidth="101.0" />
+      <Label fx:id="outputLabel1" layoutX="86.0" layoutY="150.0" prefHeight="26.0" prefWidth="69.0" text="Prefix String" />
+      <Label fx:id="outputLabel11" layoutX="25.0" layoutY="217.0" prefHeight="26.0" prefWidth="40.0" text="After:" />
+      <Line endX="50.0" layoutX="117.0" layoutY="178.0" startX="-50.0" />
+      <Label fx:id="outputLabel111" layoutX="18.0" layoutY="181.0" prefHeight="26.0" prefWidth="40.0" text="Before:" />
+      <TextField fx:id="psa" layoutX="66.0" layoutY="217.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="ssb" layoutX="254.0" layoutY="181.0" prefHeight="25.0" prefWidth="101.0" />
+      <Label fx:id="outputLabel12" layoutX="270.0" layoutY="150.0" prefHeight="26.0" prefWidth="84.0" text="Suffix String" />
+      <Label fx:id="outputLabel112" layoutX="213.0" layoutY="215.0" prefHeight="26.0" prefWidth="40.0" text="After:" />
+      <Line endX="50.0" layoutX="305.0" layoutY="176.0" startX="-50.0" />
+      <Label fx:id="outputLabel1111" layoutX="206.0" layoutY="179.0" prefHeight="26.0" prefWidth="40.0" text="Before:" />
+      <TextField fx:id="ssa" layoutX="254.0" layoutY="215.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="srb" layoutX="445.0" layoutY="181.0" prefHeight="25.0" prefWidth="101.0" />
+      <Label fx:id="outputLabel121" layoutX="458.0" layoutY="150.0" prefHeight="26.0" prefWidth="84.0" text="String Replace" />
+      <Label fx:id="outputLabel1121" layoutX="404.0" layoutY="215.0" prefHeight="26.0" prefWidth="40.0" text="After:" />
+      <Line endX="50.0" layoutX="496.0" layoutY="176.0" startX="-50.0" />
+      <Label fx:id="outputLabel11111" layoutX="397.0" layoutY="179.0" prefHeight="26.0" prefWidth="40.0" text="Before:" />
+      <TextField fx:id="sra" layoutX="445.0" layoutY="215.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="suffixText" layoutX="199.0" layoutY="262.0" prefHeight="25.0" prefWidth="69.0" />
+      <Button layoutX="274.0" layoutY="262.0" mnemonicParsing="false" onAction="#addSuffixToDictionary" text="Add Suffix to Dictionary" />
+      <Button layoutX="255.0" layoutY="295.0" mnemonicParsing="false" onAction="#clearDictionary" text="Clear Dictionary" />
+      <ImageView fitHeight="214.0" fitWidth="260.0" layoutX="-19.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" scaleX="0.4" scaleY="0.4">
+         <image>
+            <Image url="@districtlogo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="161.0" layoutX="442.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@java.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

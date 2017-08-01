@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="----Steps----&#10;&#10;1. Paste the path containing your TCs next to where it says &quot;TC Input Path.&quot; Your test case names must be in the format &quot;110-[TC abbreviation]TC-[TC Name]&quot; or else this program will NOT work. (Note: This path MUST come from Windows Explorer after mapping SharePoint to a drive)&#10;&#10;Example: A:\ERP Change Management Library\Work In Progress\ET3683-PSAppUpgrade92\AM\TC&#10;&#10;2. Paste the path where you want the files to be copied next to where it says &quot;TC Output Path.&quot;&#10;&#10;Example: A:\ERP Change Management Library\Work In Progress\ET3683-PSAppUpgrade92\AM\UAT_TR&#10;&#10;3. Edit any parameters you want applied and then hit the &quot;Go&quot; button and allow a few moments for the program to run. It should not take any longer than 1.5 seconds per file. (e.g. 200 files = 300 seconds max)&#10;&#10;4. Navigate to your output location in Windows Explorer and click refresh at the top, or simply view them in SharePoint.&#10;&#10;5. Complete!&#10;&#10;----Parameters----&#10;Prefix String:&#10;&#10;Place a value in the &quot;Before&quot; box if you want only TCs with that prefix to be renamed to the value placed in the &quot;After&quot; box.&#10;&#10;Leave the &quot;Before&quot; box blank and place a value in the &quot;After&quot; box if you want all TCs to be renamed regardless of their current prefix.&#10;&#10;&#10;Suffix String:&#10;&#10;Place a value in the &quot;Before&quot; box if you want only TCs with that suffix to be renamed to the value placed in the &quot;After&quot; box.&#10;&#10;Leave the &quot;Before&quot; box blank and place a value in the &quot;After&quot; box if you want all TCs to be renamed regardless of their current suffix. Doing this will also create suffixes for TCs that don't yet have one.&#10;&#10;&#10;String Replace:&#10;&#10;This option will replace any occurrence of what is placed in the &quot;Before&quot; box with what is placed in the &quot;After&quot; box. It is possible to leave the &quot;After&quot; box blank in order to delete occurrences of what is placed in the &quot;Before&quot; box.&#10;&#10;----Credit----&#10;&#10;@author Nicholas Ostaffe&#10;@date 07/17/2017&#10;&#10;Source Available at: https://github.com/supergoa" translateX="10.0" wrappingWidth="564.13671875" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
