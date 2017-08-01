@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="----Steps----&#10;&#10;1. Paste the path of the testDoc or testResults folder next to where it says &quot;TC folder path.&quot; (Note: Use the other test folder if the first one does not run and/or produce the correct output).&#10;&#10;Example: C:\Path\To\TC_Folder\2017\FIN\AssetManagement\Publishing Content\TestDoc&#10;&#10;2. Paste the path where you want the output to be saved. (If an output doesnt seem to show up, try putting the path as your desktop).&#10;&#10;Example: C:\Users\MyName\Desktop&#10;&#10;3. Hit the &quot;Go&quot; button and allow a few moment for the program to run. It should not take any longer than 15 seconds.&#10;&#10;4. Open the &quot;TCPathBuilder_Output.txt&quot; file at the path you designated in step 2.&#10;&#10;5. Without changing its contents, copy the entire output onto your clipboard (Ctrl + C).&#10;&#10;6. Paste the copied output into your desired excel sheet (Ctrl + V).&#10;&#10;7. Get rid of bad data. Put a filter on the recently pasted output. Then, from the dropdown for the filter, select Text Filers -&gt; Does Not Contain -&gt; Enter a &quot;&gt;&quot; symbol in the first box -&gt; hit enter. Now, delete everything that was filtered. Lastly, skim through the rest of the data and delete rows that contain obvious flaws.&#10;&#10;8. Complete!&#10;&#10;----Technical----&#10;&#10;@author Nicholas Ostaffe&#10;@date 07/06/2017&#10;&#10;This piece of code checks a directory for a list of word documents, opens each of them up, and checks each for a path to a test case (TC) based on keywords within the word document. This code depends on Docx4j to open, read, and modify word documents. After opening each document, names of menus and links are extracted based on a regex pattern. These names are then constructed into a path.&#10;&#10; e.g. &#10; menu &gt; menu &gt; menu &#10; menu &gt; link &gt; link &#10; menu &gt; link &gt; menu &#10; link &gt; link &gt; link&#10;  ... &#10; etc. &#10;&#10;These paths are exported into a .txt file, associated with the original TC name, separated by a tab. Format for the .txt appears as follows : &#10;&#10; e.g. &#10; TC name 1&#9;this &gt; is &gt; my &gt; path&#10; TC_THIS_IS_TC_2&#9;path &gt; number &gt; two&#10; ... &#10; etc. &#10;&#10;No editing of the .txt file is required. Simply select all of the text within the .txt file, copy it, and paste it into your desired excel sheet.&#10;&#10;Source Available at: https://github.com/supergoa" translateX="10.0" wrappingWidth="564.13671875" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
