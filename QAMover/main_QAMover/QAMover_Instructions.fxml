@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="----Steps----&#10;&#10;1. Paste the path of the completed work in progress folder next to &quot;Work in Progress Path.&quot; This path MUST come from Windows Explorer after mapping SharePoint to a drive)&#10;&#10;Example: Z:\ERP Change Management Library\Work In Progress\PY3428-FRS File&#10;&#10;2. Paste the path of the corresponding QALocked folder next to &quot;QALocked Path.&quot; You must create this folder if it does not yet exist.&#10;&#10;Example: Z:\ERP Change Management Library\QA_Locked\PY3428-FRS File&#10;&#10;3. Then, hit the &quot;Go&quot; button and allow a few moments for the program to run. It should not take any longer than 5 seconds per file in the Work in Progress folder. (e.g. 10 files = 50 seconds max)&#10;&#10;4. Navigate to your output location in Windows Explorer and click refresh at the top.&#10;&#10;5. Complete!&#10;&#10;----Credit----&#10;&#10;@author Nicholas Ostaffe&#10;@date 08/03/2017&#10;&#10;Source Available at: https://github.com/supergoa" translateX="10.0" wrappingWidth="564.13671875" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
