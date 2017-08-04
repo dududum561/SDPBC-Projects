@@ -74,6 +74,7 @@ public class TCMover extends Application {
 
 	public static void main(String[] args) throws IOException {
 		Application.launch(args);
+		//go("Z:\\ERP Change Management Library\\Work In Progress\\ET3683-PSAppUpgrade92\\PY\\TC","Z:\\ERP Change Management Library\\Work In Progress\\ET3683-PSAppUpgrade92\\PY\\UAT_TR", false);
 	}
 
 	/**
@@ -182,108 +183,116 @@ public class TCMover extends Application {
 	 * @return is the modified name to fit the new format ###-XXTR-namehere.fileextension
 	 */
 	private static String parseFileName(String name) {
-		
-		// ps denotes Prefix String
-		// ss denotes Suffix String
-		// sr denotes String Replace
-		// a denotes after
-		// b denotes before
-		
-		String psb = null;
-	    String psa = null;
-	    String ssb = null;
-	    String ssa = null;
-	    String srb = null;
-	    String sra = null;
-	    
 		try {
-		    psb = tcMoverController.getPsb();	    
-		    psa = tcMoverController.getPsa();  
-		    ssb = tcMoverController.getSsb();      
-		    ssa = tcMoverController.getSsa();  
-		    srb = tcMoverController.getSrb();  
-		    sra = tcMoverController.getSra();
-		} catch (NullPointerException e) {e.printStackTrace();}
-		
-	    //
-	    // Prefix String
-	    //
-	    
-	    if ((psb != null && !psb.isEmpty()) && (psa != null && !psa.isEmpty())) {
-	    	name = name.replace(psb, psa);
-	    } else if ((psb == null || psb.isEmpty()) && (psa != null && !psa.isEmpty())) {
-	    	name = name.replace(name.split("-")[0], psa);
-	    }
-	    
-	    //
-	    // TC --> TR
-	    //
-	    
-	    name = name.replace(name.split("-")[1], name.split("-")[1].replace("TC", "TR") );
-		
-	    //
-	    // Suffix String (using .txt dictionary)
-	    //
-	    
-	    // Create relative file if it doesn't exist and add default values 
-	    createDictionary();
-	    
-	    // Read in Suffix's from dictionary (.txt file)
-	    ArrayList<String> suffixDictionary = new ArrayList<>();
-	    try {
-	    	BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir")+ "\\dictionary.txt"));
+			// ps denotes Prefix String
+			// ss denotes Suffix String
+			// sr denotes String Replace
+			// a denotes after
+			// b denotes before
 			
-			String line;
-			while((line = br.readLine()) != null) {
-				suffixDictionary.add(line);
+			String psb = null;
+		    String psa = null;
+		    String ssb = null;
+		    String ssa = null;
+		    String srb = null;
+		    String sra = null;
+		    
+			try {
+			    psb = tcMoverController.getPsb();	    
+			    psa = tcMoverController.getPsa();  
+			    ssb = tcMoverController.getSsb();      
+			    ssa = tcMoverController.getSsa();  
+			    srb = tcMoverController.getSrb();  
+			    sra = tcMoverController.getSra();
+			} catch (NullPointerException e) {e.printStackTrace();}
+			
+		    //
+		    // Prefix String
+		    //
+		    
+		    if ((psb != null && !psb.isEmpty()) && (psa != null && !psa.isEmpty())) {
+		    	name = name.replace(psb, psa);
+		    } else if ((psb == null || psb.isEmpty()) && (psa != null && !psa.isEmpty())) {
+		    	name = name.replace(name.split("-")[0], psa);
 		    }
-			br.close();
-		} catch (IOException e) {e.printStackTrace();} 
-	    
-	    
-	    // Ensure that entered Suffix exists in dictionary
-	    // and check if the file already has a suffix
-	    boolean validSsbSuffix = false;
-	    boolean validSsaSuffix = false;
-	    
-	    boolean existingSuffix = false;
-	    String potentialSuffix = name.split("-")[2];
-	    
-	    for (String s : suffixDictionary) {
-	    	if(s.equals(ssb)) {
-	    		validSsbSuffix = true;
-	    	}
-	    	if(s.equals(ssa)) {
-	    		validSsaSuffix = true;
-	    	}
-	    	if(s.equals(potentialSuffix)) {
-	    		existingSuffix = true;
-	    	}
-	    }
-	    
-	    if(validSsbSuffix || validSsaSuffix) {
-	    	if(validSsaSuffix && (ssb == null || ssb.isEmpty())) {
-				if(existingSuffix) {
-					name = name.replace("-"+potentialSuffix+"-", "-"+ssa+"-");
-				}
-				else {
-		    		int pos = ordinalIndexOf(name, "-", 2);
-					name = name.substring(0,pos) + "-" + ssa + name.substring(pos);	  	
-	    		}
-	    	}
-	    	if(validSsbSuffix && validSsaSuffix) {
-	    		name = name.replace("-"+ssb+"-", "-"+ssa+"-");
-	    	}
-	    }
-	    
-	    //
-	    // String Replace
-	    //
-	    
-	    if ((srb != null && !srb.isEmpty())) {
-	    	name = name.replace(srb, sra);
-	    }
-	    
+		    
+		    //
+		    // TC --> TR
+		    //
+		    
+		    name = name.replace(name.split("-")[1], name.split("-")[1].replace("TC", "TR") );
+			
+		    //
+		    // Suffix String (using .txt dictionary)
+		    //
+		    
+		    // Create relative file if it doesn't exist and add default values 
+		    createDictionary();
+		    
+		    // Read in Suffix's from dictionary (.txt file)
+		    ArrayList<String> suffixDictionary = new ArrayList<>();
+		    try {
+		    	BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir")+ "\\dictionary.txt"));
+				
+				String line;
+				while((line = br.readLine()) != null) {
+					suffixDictionary.add(line);
+			    }
+				br.close();
+			} catch (IOException e) {e.printStackTrace();} 
+		    
+		    
+		    // Ensure that entered Suffix exists in dictionary
+		    // and check if the file already has a suffix
+		    boolean validSsbSuffix = false;
+		    boolean validSsaSuffix = false;
+		    
+		    boolean existingSuffix = false;
+		    String potentialSuffix = null;
+		    try {
+		    	potentialSuffix = name.split("-")[2];
+		    } catch (ArrayIndexOutOfBoundsException e) {}
+		    
+		    for (String s : suffixDictionary) {
+		    	if(s.equals(ssb)) {
+		    		validSsbSuffix = true;
+		    	}
+		    	if(s.equals(ssa)) {
+		    		validSsaSuffix = true;
+		    	}
+		    	if(s.equals(potentialSuffix)) {
+		    		existingSuffix = true;
+		    	}
+		    }
+		    
+		    if(validSsbSuffix || validSsaSuffix) {
+		    	if(validSsaSuffix && (ssb == null || ssb.isEmpty())) {
+					if(existingSuffix) {
+						name = name.replace("-"+potentialSuffix+"-", "-"+ssa+"-");
+					}
+					else {
+			    		int pos = ordinalIndexOf(name, "-", 2);
+			    		System.out.println(name);
+						name = name.substring(0,pos) + "-" + ssa + name.substring(pos);	  	
+		    		}
+		    	}
+		    	if(validSsbSuffix && validSsaSuffix) {
+		    		name = name.replace("-"+ssb+"-", "-"+ssa+"-");
+		    	}
+		    }
+		    
+		    //
+		    // String Replace
+		    //
+		    
+		    if ((srb != null && !srb.isEmpty())) {
+		    	name = name.replace(srb, sra);
+		    }
+		    
+			return name;
+		} catch (Exception e) {
+			loadFXML("TCMover_Error.fxml", "Error!");
+		}
 		return name;
 	}
 	
